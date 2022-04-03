@@ -17,23 +17,23 @@ class DhakaPainter extends CustomPainter {
   final Color _filColor = const Color(0xff4DAF4A);
 
   Color _giveMeStrokeColor(bool show) {
-    if (!show && strokeWidth == null) {
+    if (!show && strokeColor == null && color == null) {
       return _filColor;
-    } else if (show && strokeWidth != null) {
+    } else if (show && strokeColor != null && color != null) {
       return strokeColor as Color;
-    } else {
-      return _strokeColor;
+    } else if (!show && strokeColor == null && color != null) {
+      return color as Color;
     }
+    return _strokeColor;
   }
 
-  double _giveMeStrokeSize(bool show, double s) {
-    if (!show && strokeWidth == null) {
+   double _giveMeStrokeSize(bool show, double s) {
+    if (!show && strokeWidth == null || !show && strokeWidth != null) {
       return 1.65;
     } else if (show && strokeWidth != null) {
       return strokeWidth as double;
-    } else {
-      return s;
     }
+    return s;
   }
 
   @override
@@ -213,7 +213,8 @@ class DhakaPainter extends CustomPainter {
 
     Paint paint_1_stroke = Paint()
       ..style = PaintingStyle.stroke
-      ..strokeWidth = size.width * 0.003057753;
+      ..strokeWidth =
+          _giveMeStrokeSize(showDistrictBorder, size.width * 0.002043811);
     paint_1_stroke.color = _giveMeStrokeColor(showDistrictBorder);
     canvas.drawPath(path_1, paint_1_stroke);
 
@@ -310,7 +311,8 @@ class DhakaPainter extends CustomPainter {
 
     Paint paint_2_stroke = Paint()
       ..style = PaintingStyle.stroke
-      ..strokeWidth = size.width * 0.003057753;
+      ..strokeWidth =
+          _giveMeStrokeSize(showDistrictBorder, size.width * 0.002043811);
     paint_2_stroke.color = _giveMeStrokeColor(showDistrictBorder);
     canvas.drawPath(path_2, paint_2_stroke);
 
@@ -368,7 +370,8 @@ class DhakaPainter extends CustomPainter {
 
     Paint paint_3_stroke = Paint()
       ..style = PaintingStyle.stroke
-      ..strokeWidth = size.width * 0.003057753;
+      ..strokeWidth =
+          _giveMeStrokeSize(showDistrictBorder, size.width * 0.002043811);
     paint_3_stroke.color = _giveMeStrokeColor(showDistrictBorder);
     canvas.drawPath(path_3, paint_3_stroke);
 
@@ -447,7 +450,8 @@ class DhakaPainter extends CustomPainter {
 
     Paint paint_4_stroke = Paint()
       ..style = PaintingStyle.stroke
-      ..strokeWidth = size.width * 0.003057753;
+      ..strokeWidth =
+          _giveMeStrokeSize(showDistrictBorder, size.width * 0.002043811);
     paint_4_stroke.color = _giveMeStrokeColor(showDistrictBorder);
     canvas.drawPath(path_4, paint_4_stroke);
 
@@ -488,7 +492,8 @@ class DhakaPainter extends CustomPainter {
 
     Paint paint_5_stroke = Paint()
       ..style = PaintingStyle.stroke
-      ..strokeWidth = size.width * 0.003057753;
+      ..strokeWidth =
+          _giveMeStrokeSize(showDistrictBorder, size.width * 0.002043811);
     paint_5_stroke.color = _giveMeStrokeColor(showDistrictBorder);
     canvas.drawPath(path_5, paint_5_stroke);
 
@@ -545,7 +550,8 @@ class DhakaPainter extends CustomPainter {
 
     Paint paint_6_stroke = Paint()
       ..style = PaintingStyle.stroke
-      ..strokeWidth = size.width * 0.003057753;
+      ..strokeWidth =
+          _giveMeStrokeSize(showDistrictBorder, size.width * 0.002043811);
     paint_6_stroke.color = _giveMeStrokeColor(showDistrictBorder);
     canvas.drawPath(path_6, paint_6_stroke);
 
@@ -625,7 +631,8 @@ class DhakaPainter extends CustomPainter {
 
     Paint paint_7_stroke = Paint()
       ..style = PaintingStyle.stroke
-      ..strokeWidth = size.width * 0.003057753;
+      ..strokeWidth =
+          _giveMeStrokeSize(showDistrictBorder, size.width * 0.002043811);
     paint_7_stroke.color = _giveMeStrokeColor(showDistrictBorder);
     canvas.drawPath(path_7, paint_7_stroke);
 
@@ -699,7 +706,8 @@ class DhakaPainter extends CustomPainter {
 
     Paint paint_8_stroke = Paint()
       ..style = PaintingStyle.stroke
-      ..strokeWidth = size.width * 0.003057753;
+      ..strokeWidth =
+          _giveMeStrokeSize(showDistrictBorder, size.width * 0.002043811);
     paint_8_stroke.color = _giveMeStrokeColor(showDistrictBorder);
     canvas.drawPath(path_8, paint_8_stroke);
 
@@ -746,7 +754,8 @@ class DhakaPainter extends CustomPainter {
 
     Paint paint_9_stroke = Paint()
       ..style = PaintingStyle.stroke
-      ..strokeWidth = size.width * 0.003057753;
+      ..strokeWidth =
+          _giveMeStrokeSize(showDistrictBorder, size.width * 0.002043811);
     paint_9_stroke.color = _giveMeStrokeColor(showDistrictBorder);
     canvas.drawPath(path_9, paint_9_stroke);
 
@@ -784,7 +793,8 @@ class DhakaPainter extends CustomPainter {
 
     Paint paint_10_stroke = Paint()
       ..style = PaintingStyle.stroke
-      ..strokeWidth = size.width * 0.003057753;
+      ..strokeWidth =
+          _giveMeStrokeSize(showDistrictBorder, size.width * 0.002043811);
     paint_10_stroke.color = _giveMeStrokeColor(showDistrictBorder);
     canvas.drawPath(path_10, paint_10_stroke);
 
@@ -801,7 +811,8 @@ class DhakaPainter extends CustomPainter {
 
     Paint paint_11_stroke = Paint()
       ..style = PaintingStyle.stroke
-      ..strokeWidth = size.width * 0.003057753;
+      ..strokeWidth =
+          _giveMeStrokeSize(showDistrictBorder, size.width * 0.002043811);
     paint_11_stroke.color = _giveMeStrokeColor(showDistrictBorder);
     canvas.drawPath(path_11, paint_11_stroke);
 
@@ -824,7 +835,8 @@ class DhakaPainter extends CustomPainter {
 
     Paint paint_12_stroke = Paint()
       ..style = PaintingStyle.stroke
-      ..strokeWidth = size.width * 0.003057753;
+      ..strokeWidth =
+          _giveMeStrokeSize(showDistrictBorder, size.width * 0.002043811);
     paint_12_stroke.color = _giveMeStrokeColor(showDistrictBorder);
     canvas.drawPath(path_12, paint_12_stroke);
 
@@ -847,7 +859,8 @@ class DhakaPainter extends CustomPainter {
 
     Paint paint_13_stroke = Paint()
       ..style = PaintingStyle.stroke
-      ..strokeWidth = size.width * 0.003057753;
+      ..strokeWidth =
+          _giveMeStrokeSize(showDistrictBorder, size.width * 0.002043811);
     paint_13_stroke.color = _giveMeStrokeColor(showDistrictBorder);
     canvas.drawPath(path_13, paint_13_stroke);
 
@@ -956,7 +969,8 @@ class DhakaPainter extends CustomPainter {
 
     Paint paint_14_stroke = Paint()
       ..style = PaintingStyle.stroke
-      ..strokeWidth = size.width * 0.004586630;
+      ..strokeWidth =
+          _giveMeStrokeSize(showDistrictBorder, size.width * 0.004586630);
     paint_14_stroke.color = _giveMeStrokeColor(showDistrictBorder);
     canvas.drawPath(path_14, paint_14_stroke);
 
@@ -1058,7 +1072,8 @@ class DhakaPainter extends CustomPainter {
 
     Paint paint_15_stroke = Paint()
       ..style = PaintingStyle.stroke
-      ..strokeWidth = size.width * 0.004586630;
+      ..strokeWidth =
+          _giveMeStrokeSize(showDistrictBorder, size.width * 0.004586630);
     paint_15_stroke.color = _giveMeStrokeColor(showDistrictBorder);
     canvas.drawPath(path_15, paint_15_stroke);
 

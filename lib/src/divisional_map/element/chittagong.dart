@@ -17,23 +17,23 @@ class ChittagongPainter extends CustomPainter {
   final Color _filColor = const Color(0xff67923D);
 
   Color _giveMeStrokeColor(bool show) {
-    if (!show && strokeWidth == null) {
+    if (!show && strokeColor == null && color == null) {
       return _filColor;
-    } else if (show && strokeWidth != null) {
+    } else if (show && strokeColor != null && color != null) {
       return strokeColor as Color;
-    } else {
-      return _strokeColor;
+    } else if (!show && strokeColor == null && color != null) {
+      return color as Color;
     }
+    return _strokeColor;
   }
 
   double _giveMeStrokeSize(bool show, double s) {
-    if (!show && strokeWidth == null) {
+    if (!show && strokeWidth == null || !show && strokeWidth != null) {
       return 1.65;
     } else if (show && strokeWidth != null) {
       return strokeWidth as double;
-    } else {
-      return s;
     }
+    return s;
   }
 
   @override

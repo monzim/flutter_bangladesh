@@ -16,6 +16,14 @@ class BangladeshDivisionMap extends StatelessWidget {
     this.districtStrokeSize,
     this.districtBorderColor,
     this.showDistrictBorder = true,
+    this.dhakaColor,
+    this.rangpurColor,
+    this.rajshahiColor,
+    this.khulnaColor,
+    this.sylhetColor,
+    this.barisalColor,
+    this.chittagongColor,
+    this.mymensinghColor,
   }) : super(key: key);
 
   final double width;
@@ -25,12 +33,17 @@ class BangladeshDivisionMap extends StatelessWidget {
   final double? borderStrokeSize, divisionStrokeSize, districtStrokeSize;
   final Color? borderColor, divisionBorderColor, districtBorderColor;
   final bool? showBorder, showDivisionBorder;
+  final Color? dhakaColor,
+      rangpurColor,
+      rajshahiColor,
+      khulnaColor,
+      sylhetColor,
+      barisalColor,
+      chittagongColor,
+      mymensinghColor;
 
   @override
   Widget build(BuildContext context) {
-    // final double width = 100;
-    // final double height = 200;
-
     const double _width = 360.59;
     const double _height = 500;
 
@@ -45,6 +58,7 @@ class BangladeshDivisionMap extends StatelessWidget {
             child: CustomPaint(
               size: Size(139.23 / _width * width, (132.73 / _height * height)),
               painter: RangpurPainter(
+                color: rangpurColor,
                 strokeColor: districtBorderColor,
                 strokeWidth: districtStrokeSize,
                 showDistrictBorder: showDistrictBorder,
@@ -57,6 +71,7 @@ class BangladeshDivisionMap extends StatelessWidget {
             child: CustomPaint(
               size: Size(138.64 / _width * width, (120.51 / _height * height)),
               painter: RajshahiPainter(
+                color: rajshahiColor,
                 strokeColor: districtBorderColor,
                 strokeWidth: districtStrokeSize,
                 showDistrictBorder: showDistrictBorder,
@@ -69,6 +84,7 @@ class BangladeshDivisionMap extends StatelessWidget {
             child: CustomPaint(
               size: Size(125.93 / _width * width, (96.64 / _height * height)),
               painter: MymensinghPainter(
+                color: mymensinghColor,
                 strokeColor: districtBorderColor,
                 strokeWidth: districtStrokeSize,
                 showDistrictBorder: showDistrictBorder,
@@ -81,6 +97,7 @@ class BangladeshDivisionMap extends StatelessWidget {
             child: CustomPaint(
               size: Size(118.54 / _width * width, (101.58 / _height * height)),
               painter: SylhetPainter(
+                color: sylhetColor,
                 strokeColor: districtBorderColor,
                 strokeWidth: districtStrokeSize,
                 showDistrictBorder: showDistrictBorder,
@@ -93,6 +110,7 @@ class BangladeshDivisionMap extends StatelessWidget {
             child: CustomPaint(
               size: Size(108.13 / _width * width, (210.79 / _height * height)),
               painter: KhulnaPainter(
+                color: khulnaColor,
                 strokeColor: districtBorderColor,
                 strokeWidth: districtStrokeSize,
                 showDistrictBorder: showDistrictBorder,
@@ -105,6 +123,7 @@ class BangladeshDivisionMap extends StatelessWidget {
             child: CustomPaint(
               size: Size(151.94 / _width * width, (161.75 / _height * height)),
               painter: DhakaPainter(
+                color: dhakaColor,
                 strokeColor: districtBorderColor,
                 strokeWidth: districtStrokeSize,
                 showDistrictBorder: showDistrictBorder,
@@ -117,6 +136,7 @@ class BangladeshDivisionMap extends StatelessWidget {
             child: CustomPaint(
               size: Size(86.34 / _width * width, (106.65 / _height * height)),
               painter: BarisalPainter(
+                color: barisalColor,
                 strokeColor: districtBorderColor,
                 strokeWidth: districtStrokeSize,
                 showDistrictBorder: showDistrictBorder,
@@ -129,6 +149,7 @@ class BangladeshDivisionMap extends StatelessWidget {
             child: CustomPaint(
               size: Size(162.88 / _width * width, (300.01 / _height * height)),
               painter: ChittagongPainter(
+                color: chittagongColor,
                 strokeColor: districtBorderColor,
                 strokeWidth: districtStrokeSize,
                 showDistrictBorder: showDistrictBorder,

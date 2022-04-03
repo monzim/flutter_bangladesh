@@ -27,7 +27,19 @@ class HomePage extends StatelessWidget {
           child: BangladeshDivisionMap(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width * 0.8,
-        districtBorderColor: Colors.red,
+        showBorder: false,
+        showDivisionBorder: false,
+        showDistrictBorder: false,
+        districtStrokeSize: 6,
+        sylhetColor: Colors.blue,
+        rajshahiColor: Colors.pinkAccent,
+        rangpurColor: Colors.orangeAccent,
+        dhakaColor: Colors.indigo,
+        barisalColor: Colors.tealAccent,
+        mymensinghColor: Colors.lime,
+        chittagongColor: Colors.grey,
+        khulnaColor: Colors.redAccent,
+        borderColor: Colors.amber,
       )),
     );
   }
