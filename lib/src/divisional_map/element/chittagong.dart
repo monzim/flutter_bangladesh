@@ -1,15 +1,40 @@
 import 'package:flutter/material.dart';
 
 class ChittagongPainter extends CustomPainter {
-  ChittagongPainter({this.color, this.strokeColor, this.strokeWidth});
+  ChittagongPainter({
+    this.color,
+    this.strokeColor,
+    this.strokeWidth,
+    this.showDistrictBorder = true,
+  });
 
   final Color? color;
   final Color? strokeColor;
   final double? strokeWidth;
+  bool showDistrictBorder;
 
-  final double _innerStroke = 0.5;
   final Color _strokeColor = Colors.white;
   final Color _filColor = const Color(0xff67923D);
+
+  Color _giveMeStrokeColor(bool show) {
+    if (!show && strokeWidth == null) {
+      return _filColor;
+    } else if (show && strokeWidth != null) {
+      return strokeColor as Color;
+    } else {
+      return _strokeColor;
+    }
+  }
+
+  double _giveMeStrokeSize(bool show, double s) {
+    if (!show && strokeWidth == null) {
+      return 1.65;
+    } else if (show && strokeWidth != null) {
+      return strokeWidth as double;
+    } else {
+      return s;
+    }
+  }
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -103,8 +128,9 @@ class ChittagongPainter extends CustomPainter {
 
     Paint paint_0_stroke = Paint()
       ..style = PaintingStyle.stroke
-      ..strokeWidth = strokeWidth ?? _innerStroke;
-    paint_0_stroke.color = strokeColor ?? _strokeColor;
+      ..strokeWidth =
+          _giveMeStrokeSize(showDistrictBorder, size.width * 0.002043811);
+    paint_0_stroke.color = _giveMeStrokeColor(showDistrictBorder);
     canvas.drawPath(path_0, paint_0_stroke);
 
     Paint paint_0_fill = Paint()..style = PaintingStyle.fill;
@@ -130,8 +156,9 @@ class ChittagongPainter extends CustomPainter {
 
     Paint paint_1_stroke = Paint()
       ..style = PaintingStyle.stroke
-      ..strokeWidth = size.width * 0.0007178293;
-    paint_1_stroke.color = Colors.white.withOpacity(1.0);
+      ..strokeWidth =
+          _giveMeStrokeSize(showDistrictBorder, size.width * 0.002043811);
+    paint_1_stroke.color = _giveMeStrokeColor(showDistrictBorder);
     canvas.drawPath(path_1, paint_1_stroke);
 
     Paint paint_1_fill = Paint()..style = PaintingStyle.fill;
@@ -232,8 +259,9 @@ class ChittagongPainter extends CustomPainter {
 
     Paint paint_2_stroke = Paint()
       ..style = PaintingStyle.stroke
-      ..strokeWidth = strokeWidth ?? _innerStroke;
-    paint_2_stroke.color = Colors.white.withOpacity(1.0);
+      ..strokeWidth =
+          _giveMeStrokeSize(showDistrictBorder, size.width * 0.002043811);
+    paint_2_stroke.color = _giveMeStrokeColor(showDistrictBorder);
     canvas.drawPath(path_2, paint_2_stroke);
 
     Paint paint_2_fill = Paint()..style = PaintingStyle.fill;
@@ -301,8 +329,9 @@ class ChittagongPainter extends CustomPainter {
 
     Paint paint_3_stroke = Paint()
       ..style = PaintingStyle.stroke
-      ..strokeWidth = strokeWidth ?? _innerStroke;
-    paint_3_stroke.color = Colors.white.withOpacity(1.0);
+      ..strokeWidth =
+          _giveMeStrokeSize(showDistrictBorder, size.width * 0.002043811);
+    paint_3_stroke.color = _giveMeStrokeColor(showDistrictBorder);
     canvas.drawPath(path_3, paint_3_stroke);
 
     Paint paint_3_fill = Paint()..style = PaintingStyle.fill;
@@ -355,8 +384,9 @@ class ChittagongPainter extends CustomPainter {
 
     Paint paint_4_stroke = Paint()
       ..style = PaintingStyle.stroke
-      ..strokeWidth = strokeWidth ?? _innerStroke;
-    paint_4_stroke.color = Colors.white.withOpacity(1.0);
+      ..strokeWidth =
+          _giveMeStrokeSize(showDistrictBorder, size.width * 0.002043811);
+    paint_4_stroke.color = _giveMeStrokeColor(showDistrictBorder);
     canvas.drawPath(path_4, paint_4_stroke);
 
     Paint paint_4_fill = Paint()..style = PaintingStyle.fill;
@@ -408,8 +438,9 @@ class ChittagongPainter extends CustomPainter {
 
     Paint paint_5_stroke = Paint()
       ..style = PaintingStyle.stroke
-      ..strokeWidth = strokeWidth ?? _innerStroke;
-    paint_5_stroke.color = Colors.white.withOpacity(1.0);
+      ..strokeWidth =
+          _giveMeStrokeSize(showDistrictBorder, size.width * 0.002043811);
+    paint_5_stroke.color = _giveMeStrokeColor(showDistrictBorder);
     canvas.drawPath(path_5, paint_5_stroke);
 
     Paint paint_5_fill = Paint()..style = PaintingStyle.fill;
@@ -430,8 +461,9 @@ class ChittagongPainter extends CustomPainter {
 
     Paint paint_6_stroke = Paint()
       ..style = PaintingStyle.stroke
-      ..strokeWidth = strokeWidth ?? _innerStroke;
-    paint_6_stroke.color = Colors.white.withOpacity(1.0);
+      ..strokeWidth =
+          _giveMeStrokeSize(showDistrictBorder, size.width * 0.002043811);
+    paint_6_stroke.color = _giveMeStrokeColor(showDistrictBorder);
     canvas.drawPath(path_6, paint_6_stroke);
 
     Paint paint_6_fill = Paint()..style = PaintingStyle.fill;
@@ -449,8 +481,9 @@ class ChittagongPainter extends CustomPainter {
 
     Paint paint_7_stroke = Paint()
       ..style = PaintingStyle.stroke
-      ..strokeWidth = strokeWidth ?? _innerStroke;
-    paint_7_stroke.color = Colors.white.withOpacity(1.0);
+      ..strokeWidth =
+          _giveMeStrokeSize(showDistrictBorder, size.width * 0.002043811);
+    paint_7_stroke.color = _giveMeStrokeColor(showDistrictBorder);
     canvas.drawPath(path_7, paint_7_stroke);
 
     Paint paint_7_fill = Paint()..style = PaintingStyle.fill;
@@ -469,8 +502,9 @@ class ChittagongPainter extends CustomPainter {
 
     Paint paint_8_stroke = Paint()
       ..style = PaintingStyle.stroke
-      ..strokeWidth = strokeWidth ?? _innerStroke;
-    paint_8_stroke.color = Colors.white.withOpacity(1.0);
+      ..strokeWidth =
+          _giveMeStrokeSize(showDistrictBorder, size.width * 0.002043811);
+    paint_8_stroke.color = _giveMeStrokeColor(showDistrictBorder);
     canvas.drawPath(path_8, paint_8_stroke);
 
     Paint paint_8_fill = Paint()..style = PaintingStyle.fill;
@@ -497,8 +531,9 @@ class ChittagongPainter extends CustomPainter {
 
     Paint paint_9_stroke = Paint()
       ..style = PaintingStyle.stroke
-      ..strokeWidth = strokeWidth ?? _innerStroke;
-    paint_9_stroke.color = Colors.white.withOpacity(1.0);
+      ..strokeWidth =
+          _giveMeStrokeSize(showDistrictBorder, size.width * 0.002043811);
+    paint_9_stroke.color = _giveMeStrokeColor(showDistrictBorder);
     canvas.drawPath(path_9, paint_9_stroke);
 
     Paint paint_9_fill = Paint()..style = PaintingStyle.fill;
@@ -548,8 +583,9 @@ class ChittagongPainter extends CustomPainter {
 
     Paint paint_10_stroke = Paint()
       ..style = PaintingStyle.stroke
-      ..strokeWidth = strokeWidth ?? _innerStroke;
-    paint_10_stroke.color = Colors.white.withOpacity(1.0);
+      ..strokeWidth =
+          _giveMeStrokeSize(showDistrictBorder, size.width * 0.002043811);
+    paint_10_stroke.color = _giveMeStrokeColor(showDistrictBorder);
     canvas.drawPath(path_10, paint_10_stroke);
 
     Paint paint_10_fill = Paint()..style = PaintingStyle.fill;
@@ -566,8 +602,9 @@ class ChittagongPainter extends CustomPainter {
 
     Paint paint_11_stroke = Paint()
       ..style = PaintingStyle.stroke
-      ..strokeWidth = strokeWidth ?? _innerStroke;
-    paint_11_stroke.color = Colors.white.withOpacity(1.0);
+      ..strokeWidth =
+          _giveMeStrokeSize(showDistrictBorder, size.width * 0.002043811);
+    paint_11_stroke.color = _giveMeStrokeColor(showDistrictBorder);
     canvas.drawPath(path_11, paint_11_stroke);
 
     Paint paint_11_fill = Paint()..style = PaintingStyle.fill;
@@ -598,8 +635,9 @@ class ChittagongPainter extends CustomPainter {
 
     Paint paint_12_stroke = Paint()
       ..style = PaintingStyle.stroke
-      ..strokeWidth = strokeWidth ?? _innerStroke;
-    paint_12_stroke.color = Colors.white.withOpacity(1.0);
+      ..strokeWidth =
+          _giveMeStrokeSize(showDistrictBorder, size.width * 0.002043811);
+    paint_12_stroke.color = _giveMeStrokeColor(showDistrictBorder);
     canvas.drawPath(path_12, paint_12_stroke);
 
     Paint paint_12_fill = Paint()..style = PaintingStyle.fill;
@@ -691,8 +729,9 @@ class ChittagongPainter extends CustomPainter {
 
     Paint paint_13_stroke = Paint()
       ..style = PaintingStyle.stroke
-      ..strokeWidth = strokeWidth ?? _innerStroke;
-    paint_13_stroke.color = Colors.white.withOpacity(1.0);
+      ..strokeWidth =
+          _giveMeStrokeSize(showDistrictBorder, size.width * 0.002043811);
+    paint_13_stroke.color = _giveMeStrokeColor(showDistrictBorder);
     canvas.drawPath(path_13, paint_13_stroke);
 
     Paint paint_13_fill = Paint()..style = PaintingStyle.fill;
@@ -744,8 +783,9 @@ class ChittagongPainter extends CustomPainter {
 
     Paint paint_14_stroke = Paint()
       ..style = PaintingStyle.stroke
-      ..strokeWidth = strokeWidth ?? _innerStroke;
-    paint_14_stroke.color = Colors.white.withOpacity(1.0);
+      ..strokeWidth =
+          _giveMeStrokeSize(showDistrictBorder, size.width * 0.002043811);
+    paint_14_stroke.color = _giveMeStrokeColor(showDistrictBorder);
     canvas.drawPath(path_14, paint_14_stroke);
 
     Paint paint_14_fill = Paint()..style = PaintingStyle.fill;
@@ -832,8 +872,9 @@ class ChittagongPainter extends CustomPainter {
 
     Paint paint_15_stroke = Paint()
       ..style = PaintingStyle.stroke
-      ..strokeWidth = strokeWidth ?? _innerStroke;
-    paint_15_stroke.color = Colors.white.withOpacity(1.0);
+      ..strokeWidth =
+          _giveMeStrokeSize(showDistrictBorder, size.width * 0.002043811);
+    paint_15_stroke.color = _giveMeStrokeColor(showDistrictBorder);
     canvas.drawPath(path_15, paint_15_stroke);
 
     Paint paint_15_fill = Paint()..style = PaintingStyle.fill;
@@ -927,8 +968,9 @@ class ChittagongPainter extends CustomPainter {
 
     Paint paint_16_stroke = Paint()
       ..style = PaintingStyle.stroke
-      ..strokeWidth = strokeWidth ?? _innerStroke;
-    paint_16_stroke.color = Colors.white.withOpacity(1.0);
+      ..strokeWidth =
+          _giveMeStrokeSize(showDistrictBorder, size.width * 0.002043811);
+    paint_16_stroke.color = _giveMeStrokeColor(showDistrictBorder);
     canvas.drawPath(path_16, paint_16_stroke);
 
     Paint paint_16_fill = Paint()..style = PaintingStyle.fill;
@@ -948,8 +990,9 @@ class ChittagongPainter extends CustomPainter {
 
     Paint paint_17_stroke = Paint()
       ..style = PaintingStyle.stroke
-      ..strokeWidth = strokeWidth ?? _innerStroke;
-    paint_17_stroke.color = Colors.white.withOpacity(1.0);
+      ..strokeWidth =
+          _giveMeStrokeSize(showDistrictBorder, size.width * 0.002043811);
+    paint_17_stroke.color = _giveMeStrokeColor(showDistrictBorder);
     canvas.drawPath(path_17, paint_17_stroke);
 
     Paint paint_17_fill = Paint()..style = PaintingStyle.fill;
@@ -1028,8 +1071,9 @@ class ChittagongPainter extends CustomPainter {
 
     Paint paint_18_stroke = Paint()
       ..style = PaintingStyle.stroke
-      ..strokeWidth = strokeWidth ?? _innerStroke;
-    paint_18_stroke.color = Colors.white.withOpacity(1.0);
+      ..strokeWidth =
+          _giveMeStrokeSize(showDistrictBorder, size.width * 0.002043811);
+    paint_18_stroke.color = _giveMeStrokeColor(showDistrictBorder);
     canvas.drawPath(path_18, paint_18_stroke);
 
     Paint paint_18_fill = Paint()..style = PaintingStyle.fill;
@@ -1050,7 +1094,7 @@ class ChittagongPainter extends CustomPainter {
     Paint paint_19_stroke = Paint()
       ..style = PaintingStyle.stroke
       ..strokeWidth = size.width * 0.001435652;
-    paint_19_stroke.color = Colors.white.withOpacity(1.0);
+    paint_19_stroke.color = _giveMeStrokeColor(showDistrictBorder);
     canvas.drawPath(path_19, paint_19_stroke);
 
     Paint paint_19_fill = Paint()..style = PaintingStyle.fill;
@@ -1084,8 +1128,9 @@ class ChittagongPainter extends CustomPainter {
 
     Paint paint_20_stroke = Paint()
       ..style = PaintingStyle.stroke
-      ..strokeWidth = size.width * 0.0007178293;
-    paint_20_stroke.color = Colors.white.withOpacity(1.0);
+      ..strokeWidth =
+          _giveMeStrokeSize(showDistrictBorder, size.width * 0.002043811);
+    paint_20_stroke.color = _giveMeStrokeColor(showDistrictBorder);
     canvas.drawPath(path_20, paint_20_stroke);
 
     Paint paint_20_fill = Paint()..style = PaintingStyle.fill;

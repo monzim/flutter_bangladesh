@@ -22,11 +22,12 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Center(
           child: BangladeshDivisionMap(
-        height: 500,
-        width: 360,
+        height: MediaQuery.of(context).size.height,
+        width: MediaQuery.of(context).size.width * 0.8,
+        districtBorderColor: Colors.red,
       )),
     );
   }

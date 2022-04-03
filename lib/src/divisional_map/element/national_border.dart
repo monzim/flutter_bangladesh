@@ -604,7 +604,7 @@ class NationalBorderPainter extends CustomPainter {
 
     Paint paint_0_stroke = Paint()
       ..style = PaintingStyle.stroke
-      ..strokeWidth = strokeWidth ?? 1;
+      ..strokeWidth = strokeWidth ?? size.width * 0.002043811;
     paint_0_stroke.color = color ?? const Color(0xff024C43);
     canvas.drawPath(path_0, paint_0_stroke);
   }

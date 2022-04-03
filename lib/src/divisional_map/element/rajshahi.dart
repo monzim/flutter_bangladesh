@@ -1,15 +1,40 @@
 import 'package:flutter/material.dart';
 
 class RajshahiPainter extends CustomPainter {
-  RajshahiPainter({this.color, this.strokeColor, this.strokeWidth});
+  RajshahiPainter({
+    this.color,
+    this.strokeColor,
+    this.strokeWidth,
+    this.showDistrictBorder = true,
+  });
 
   final Color? color;
   final Color? strokeColor;
   final double? strokeWidth;
+  bool showDistrictBorder;
 
-  final double _innerStroke = 0.5;
   final Color _strokeColor = Colors.white;
   final Color _filColor = const Color(0xff01796F);
+
+  Color _giveMeStrokeColor(bool show) {
+    if (!show && strokeWidth == null) {
+      return _filColor;
+    } else if (show && strokeWidth != null) {
+      return strokeColor as Color;
+    } else {
+      return _strokeColor;
+    }
+  }
+
+  double _giveMeStrokeSize(bool show, double s) {
+    if (!show && strokeWidth == null) {
+      return 1.65;
+    } else if (show && strokeWidth != null) {
+      return strokeWidth as double;
+    } else {
+      return s;
+    }
+  }
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -91,8 +116,9 @@ class RajshahiPainter extends CustomPainter {
 
     Paint paint_0_stroke = Paint()
       ..style = PaintingStyle.stroke
-      ..strokeWidth = strokeWidth ?? _innerStroke;
-    paint_0_stroke.color = strokeColor ?? _strokeColor;
+      ..strokeWidth =
+          _giveMeStrokeSize(showDistrictBorder, size.width * 0.002043811);
+    paint_0_stroke.color = _giveMeStrokeColor(showDistrictBorder);
     canvas.drawPath(path_0, paint_0_stroke);
 
     Paint paint_0_fill = Paint()..style = PaintingStyle.fill;
@@ -191,8 +217,9 @@ class RajshahiPainter extends CustomPainter {
 
     Paint paint_1_stroke = Paint()
       ..style = PaintingStyle.stroke
-      ..strokeWidth = strokeWidth ?? _innerStroke;
-    paint_1_stroke.color = strokeColor ?? _strokeColor;
+      ..strokeWidth =
+          _giveMeStrokeSize(showDistrictBorder, size.width * 0.002043811);
+    paint_1_stroke.color = _giveMeStrokeColor(showDistrictBorder);
     canvas.drawPath(path_1, paint_1_stroke);
 
     Paint paint_1_fill = Paint()..style = PaintingStyle.fill;
@@ -322,8 +349,9 @@ class RajshahiPainter extends CustomPainter {
 
     Paint paint_2_stroke = Paint()
       ..style = PaintingStyle.stroke
-      ..strokeWidth = strokeWidth ?? _innerStroke;
-    paint_2_stroke.color = strokeColor ?? _strokeColor;
+      ..strokeWidth =
+          _giveMeStrokeSize(showDistrictBorder, size.width * 0.002043811);
+    paint_2_stroke.color = _giveMeStrokeColor(showDistrictBorder);
     canvas.drawPath(path_2, paint_2_stroke);
 
     Paint paint_2_fill = Paint()..style = PaintingStyle.fill;
@@ -406,8 +434,9 @@ class RajshahiPainter extends CustomPainter {
 
     Paint paint_3_stroke = Paint()
       ..style = PaintingStyle.stroke
-      ..strokeWidth = strokeWidth ?? _innerStroke;
-    paint_3_stroke.color = strokeColor ?? _strokeColor;
+      ..strokeWidth =
+          _giveMeStrokeSize(showDistrictBorder, size.width * 0.002043811);
+    paint_3_stroke.color = _giveMeStrokeColor(showDistrictBorder);
     canvas.drawPath(path_3, paint_3_stroke);
 
     Paint paint_3_fill = Paint()..style = PaintingStyle.fill;
@@ -499,8 +528,9 @@ class RajshahiPainter extends CustomPainter {
 
     Paint paint_4_stroke = Paint()
       ..style = PaintingStyle.stroke
-      ..strokeWidth = strokeWidth ?? _innerStroke;
-    paint_4_stroke.color = strokeColor ?? _strokeColor;
+      ..strokeWidth =
+          _giveMeStrokeSize(showDistrictBorder, size.width * 0.002043811);
+    paint_4_stroke.color = _giveMeStrokeColor(showDistrictBorder);
     canvas.drawPath(path_4, paint_4_stroke);
 
     Paint paint_4_fill = Paint()..style = PaintingStyle.fill;
@@ -624,8 +654,9 @@ class RajshahiPainter extends CustomPainter {
 
     Paint paint_5_stroke = Paint()
       ..style = PaintingStyle.stroke
-      ..strokeWidth = strokeWidth ?? _innerStroke;
-    paint_5_stroke.color = strokeColor ?? _strokeColor;
+      ..strokeWidth =
+          _giveMeStrokeSize(showDistrictBorder, size.width * 0.002043811);
+    paint_5_stroke.color = _giveMeStrokeColor(showDistrictBorder);
     canvas.drawPath(path_5, paint_5_stroke);
 
     Paint paint_5_fill = Paint()..style = PaintingStyle.fill;
@@ -774,8 +805,9 @@ class RajshahiPainter extends CustomPainter {
 
     Paint paint_6_stroke = Paint()
       ..style = PaintingStyle.stroke
-      ..strokeWidth = strokeWidth ?? _innerStroke;
-    paint_6_stroke.color = strokeColor ?? _strokeColor;
+      ..strokeWidth =
+          _giveMeStrokeSize(showDistrictBorder, size.width * 0.002043811);
+    paint_6_stroke.color = _giveMeStrokeColor(showDistrictBorder);
     canvas.drawPath(path_6, paint_6_stroke);
 
     Paint paint_6_fill = Paint()..style = PaintingStyle.fill;
@@ -851,8 +883,9 @@ class RajshahiPainter extends CustomPainter {
 
     Paint paint_7_stroke = Paint()
       ..style = PaintingStyle.stroke
-      ..strokeWidth = strokeWidth ?? _innerStroke;
-    paint_7_stroke.color = strokeColor ?? _strokeColor;
+      ..strokeWidth =
+          _giveMeStrokeSize(showDistrictBorder, size.width * 0.002043811);
+    paint_7_stroke.color = _giveMeStrokeColor(showDistrictBorder);
     canvas.drawPath(path_7, paint_7_stroke);
 
     Paint paint_7_fill = Paint()..style = PaintingStyle.fill;
