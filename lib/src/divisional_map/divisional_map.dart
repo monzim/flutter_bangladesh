@@ -7,15 +7,16 @@ class BangladeshDivisionMap extends StatelessWidget {
     Key? key,
     required this.width,
     required this.height,
-    this.borderColor,
-    this.divisionBorderColor,
+    this.showName = true,
     this.showBorder,
     this.showDivisionBorder,
+    this.showDistrictBorder = true,
+    this.borderColor,
+    this.divisionBorderColor,
+    this.districtBorderColor,
     this.borderStrokeSize,
     this.divisionStrokeSize,
     this.districtStrokeSize,
-    this.districtBorderColor,
-    this.showDistrictBorder = true,
     this.dhakaColor,
     this.rangpurColor,
     this.rajshahiColor,
@@ -28,7 +29,7 @@ class BangladeshDivisionMap extends StatelessWidget {
 
   final double width;
   final double height;
-  final bool showDistrictBorder;
+  final bool showName, showDistrictBorder;
 
   final double? borderStrokeSize, divisionStrokeSize, districtStrokeSize;
   final Color? borderColor, divisionBorderColor, districtBorderColor;
@@ -183,8 +184,75 @@ class BangladeshDivisionMap extends StatelessWidget {
               ),
             ),
           ),
+          Visibility(
+            visible: showName,
+            child: Positioned(
+                left: 280.26 / _width * width,
+                top: 350.21 / _height * height,
+                child: const MyText(name: 'Chattogram')),
+          ),
+          Visibility(
+            visible: showName,
+            child: Positioned(
+                left: 67.16 / _width * width,
+                top: 70.66 / _height * height,
+                child: const MyText(name: 'Rangpur')),
+          ),
+          Visibility(
+            visible: showName,
+            child: Positioned(
+                left: 55.75 / _width * width,
+                top: 160.57 / _height * height,
+                child: const MyText(name: 'Rajshahi')),
+          ),
+          Visibility(
+            visible: showName,
+            child: Positioned(
+                left: 150.23 / _width * width,
+                top: 137.91 / _height * height,
+                child: const MyText(name: 'Mymensingh')),
+          ),
+          Visibility(
+            visible: showName,
+            child: Positioned(
+                left: 266.79 / _width * width,
+                top: 160.59 / _height * height,
+                child: const MyText(name: 'Sylhet')),
+          ),
+          Visibility(
+            visible: showName,
+            child: Positioned(
+                left: 150.34 / _width * width,
+                top: 240.49 / _height * height,
+                child: const MyText(name: 'Dhaka')),
+          ),
+          Visibility(
+            visible: showName,
+            child: Positioned(
+                left: 82.6 / _width * width,
+                top: 323.79 / _height * height,
+                child: const MyText(name: 'Khulna')),
+          ),
+          Visibility(
+            visible: showName,
+            child: Positioned(
+                left: 159.27 / _width * width,
+                top: 348.81 / _height * height,
+                child: const MyText(name: 'Barishal')),
+          ),
         ],
       ),
     );
+  }
+}
+
+class MyText extends StatelessWidget {
+  const MyText({Key? key, required this.name}) : super(key: key);
+
+  final String name;
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(name);
   }
 }
