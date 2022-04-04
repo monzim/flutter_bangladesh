@@ -1,3 +1,10 @@
-## 0.0.1
+## 0.1.0
 
-* TODO: Describe initial release.
+- Bangladesh Division Level Map Added.
+- Color Tooltip Title OnTap Border Color
+- National Border
+- Divisional Border
+- Touch Animation
+- No External Plugin Used
+- No assets
+- RAW DART AND FLUTTER CODE

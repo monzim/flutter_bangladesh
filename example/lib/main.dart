@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      debugShowCheckedModeBanner: true,
+      debugShowCheckedModeBanner: false,
       home: HomePage(),
     );
   }
@@ -23,10 +23,31 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-          child: BangladeshDivisionMap(
-        width: 360,
-        height: 500,
+      backgroundColor: Colors.black,
+      appBar: AppBar(
+        centerTitle: true,
+        title: const Text('Bangladesh'),
+        elevation: 0,
+        // backgroundColor: Colors.black,
+      ),
+      floatingActionButton:
+          FloatingActionButton(onPressed: () {}, child: const Icon(Icons.map)),
+      body: const Center(
+          child: BangladeshMap(
+        width: 461,
+        height: 600,
+        rangpurColor: Colors.orange,
+        rajshahiColor: Colors.red,
+        dhakaColor: Colors.indigo,
+        sylhetColor: Colors.blue,
+        khulnaColor: Colors.teal,
+        chittagongColor: Colors.grey,
+        barisalColor: Colors.pink,
+        mymensinghColor: Colors.brown,
+        showBorder: false,
+        showName: false,
+        showDivisionBorder: false,
+        showDistrictBorder: false,
       )),
     );
   }

@@ -17,17 +17,17 @@ class DhakaPainter extends CustomPainter {
   final Color _filColor = const Color(0xff4DAF4A);
 
   Color _giveMeStrokeColor(bool show) {
-    if (!show && strokeColor == null && color == null) {
-      return _filColor;
-    } else if (show && strokeColor != null && color != null) {
-      return strokeColor as Color;
-    } else if (!show && strokeColor == null && color != null) {
+    if (!show && color != null) {
       return color as Color;
+    } else if (show && strokeColor != null) {
+      return strokeColor as Color;
+    } else if (!show && color == null) {
+      return _filColor;
     }
     return _strokeColor;
   }
 
-   double _giveMeStrokeSize(bool show, double s) {
+  double _giveMeStrokeSize(bool show, double s) {
     if (!show && strokeWidth == null || !show && strokeWidth != null) {
       return 1.65;
     } else if (show && strokeWidth != null) {

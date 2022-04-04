@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 
 import 'element/element_p.dart';
 
-class BangladeshDivisionMap extends StatelessWidget {
-  const BangladeshDivisionMap({
+class BangladeshMap extends StatelessWidget {
+  const BangladeshMap({
     Key? key,
     required this.width,
     required this.height,
@@ -222,6 +222,50 @@ class BangladeshDivisionMap extends StatelessWidget {
               ),
             ),
           ),
+
+          //Dhaka
+          Positioned(
+            left: 100.79 / _width * width,
+            top: 155.05 / _height * height,
+            child: BaseWidget(
+              title: dhakaTitle ?? 'Dhaka',
+              onTap: onTapDhaka ?? () {},
+              tooltipMessage: tooltipDhaka ?? 'Dhaka'.toUpperCase(),
+              tooltipRichMessage: tooltipRichMsgDhaka,
+
+              //All
+              scaleFactor: animationScaleFactor,
+              nameTextStyle: nameTextStyle,
+              tooltipMargin: tooltipMargin,
+              tooltipPadding: tooltipPadding,
+              tooltipPreferBelow: tooltipPreferBelow,
+              tooltipDecoration: tooltipDecoration,
+              tooltipDuration: tooltipDuration,
+              tooltipExcludeFromSemantics: tooltipExcludeFromSemantics,
+              tooltipFeedback: tooltipFeedback,
+              tooltipHeight: tooltipHeight,
+              showTooltip: showTooltip,
+              tooltipTextStyle: tooltipTextStyle,
+              tooltipTriggerMode: tooltipTriggerMode,
+              tooltipVerticalOffset: tooltipVerticalOffset,
+              tooltipWaitDuration: tooltipWaitDuration,
+              showName: showName,
+              width: width,
+              height: height,
+              isNameUpperCase: isNameUpperCase,
+              child: CustomPaint(
+                size:
+                    Size(151.94 / _width * width, (161.75 / _height * height)),
+                painter: DhakaPainter(
+                  color: dhakaColor,
+                  strokeColor: districtBorderColor,
+                  strokeWidth: districtStrokeSize,
+                  showDistrictBorder: showDistrictBorder,
+                ),
+              ),
+            ),
+          ),
+
           //Rajshahi
           Positioned(
             left: 1.76 / _width * width,
@@ -384,49 +428,6 @@ class BangladeshDivisionMap extends StatelessWidget {
                     Size(108.13 / _width * width, (210.79 / _height * height)),
                 painter: KhulnaPainter(
                   color: khulnaColor,
-                  strokeColor: districtBorderColor,
-                  strokeWidth: districtStrokeSize,
-                  showDistrictBorder: showDistrictBorder,
-                ),
-              ),
-            ),
-          ),
-
-          //Dhaka
-          Positioned(
-            left: 100.79 / _width * width,
-            top: 155.05 / _height * height,
-            child: BaseWidget(
-              title: dhakaTitle ?? 'Dhaka',
-              onTap: onTapDhaka ?? () {},
-              tooltipMessage: tooltipDhaka ?? 'Dhaka'.toUpperCase(),
-              tooltipRichMessage: tooltipRichMsgDhaka,
-
-              //All
-              scaleFactor: animationScaleFactor,
-              nameTextStyle: nameTextStyle,
-              tooltipMargin: tooltipMargin,
-              tooltipPadding: tooltipPadding,
-              tooltipPreferBelow: tooltipPreferBelow,
-              tooltipDecoration: tooltipDecoration,
-              tooltipDuration: tooltipDuration,
-              tooltipExcludeFromSemantics: tooltipExcludeFromSemantics,
-              tooltipFeedback: tooltipFeedback,
-              tooltipHeight: tooltipHeight,
-              showTooltip: showTooltip,
-              tooltipTextStyle: tooltipTextStyle,
-              tooltipTriggerMode: tooltipTriggerMode,
-              tooltipVerticalOffset: tooltipVerticalOffset,
-              tooltipWaitDuration: tooltipWaitDuration,
-              showName: showName,
-              width: width,
-              height: height,
-              isNameUpperCase: isNameUpperCase,
-              child: CustomPaint(
-                size:
-                    Size(151.94 / _width * width, (161.75 / _height * height)),
-                painter: DhakaPainter(
-                  color: dhakaColor,
                   strokeColor: districtBorderColor,
                   strokeWidth: districtStrokeSize,
                   showDistrictBorder: showDistrictBorder,

@@ -17,14 +17,27 @@ class RangpurPainter extends CustomPainter {
   final Color _filColor = const Color(0xff4DAF4A);
 
   Color _giveMeStrokeColor(bool show) {
-    if (!show && strokeColor == null && color == null) {
-      return _filColor;
-    } else if (show && strokeColor != null && color != null) {
-      return strokeColor as Color;
-    } else if (!show && strokeColor == null && color != null) {
+    if (!show && color != null) {
       return color as Color;
+    } else if (show && strokeColor != null) {
+      return strokeColor as Color;
+    } else if (!show && color == null) {
+      return _filColor;
     }
     return _strokeColor;
+  }
+
+  Color _gb(bool show) {
+    if (color == null && show == true && strokeColor == null) {
+      return _strokeColor;
+    } else if (color == null && show == true && strokeColor != null) {
+      return strokeColor as Color;
+    } else if (color == null && show == false) {
+      return _strokeColor;
+    } else if (color != null && show == false) {
+      return color as Color;
+    }
+    return strokeColor as Color;
   }
 
   double _giveMeStrokeSize(bool show, double s) {
