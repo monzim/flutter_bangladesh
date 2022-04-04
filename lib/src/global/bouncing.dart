@@ -2,10 +2,15 @@ import 'package:flutter/material.dart';
 
 class Bouncing extends StatefulWidget {
   final Widget child;
-  final VoidCallback onPress;
+  final VoidCallback onTap;
+  final double? scaleFactor;
 
-  const Bouncing({required this.child, Key? key, required this.onPress})
-      : super(key: key);
+  const Bouncing({
+    Key? key,
+    this.scaleFactor,
+    required this.child,
+    required this.onTap,
+  }) : super(key: key);
 
   @override
   _BouncingState createState() => _BouncingState();
@@ -21,8 +26,8 @@ class _BouncingState extends State<Bouncing>
     super.initState();
     _controller = AnimationController(
       vsync: this,
-      duration: const Duration(milliseconds: 100),
-      // lowerBound: 0.0,
+      duration: const Duration(milliseconds: 200),
+      lowerBound: 0.0,
       upperBound: 0.1,
     )..addListener(() {
         setState(() {});
@@ -35,16 +40,20 @@ class _BouncingState extends State<Bouncing>
     _controller.dispose();
   }
 
+  double? get scaleFactor => widget.scaleFactor;
+
   @override
   Widget build(BuildContext context) {
-    _scale = 1 - _controller.value;
+    _scale = 1 - (_controller.value * scaleFactor!);
     return Listener(
       onPointerDown: (PointerDownEvent event) {
         _controller.forward();
       },
       onPointerUp: (PointerUpEvent event) {
-        _controller.reverse();
-        widget.onPress();
+        if (mounted) {
+          _controller.reverse();
+        }
+        widget.onTap();
       },
       child: Transform.scale(
         scale: _scale,
