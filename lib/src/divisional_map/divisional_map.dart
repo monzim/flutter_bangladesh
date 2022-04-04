@@ -11,6 +11,7 @@ class BangladeshDivisionMap extends StatelessWidget {
     this.showBorder,
     this.showDivisionBorder,
     this.showDistrictBorder = true,
+    this.isNameUpperCase = true,
     this.borderColor,
     this.divisionBorderColor,
     this.districtBorderColor,
@@ -29,7 +30,7 @@ class BangladeshDivisionMap extends StatelessWidget {
 
   final double width;
   final double height;
-  final bool showName, showDistrictBorder;
+  final bool showName, showDistrictBorder, isNameUpperCase;
 
   final double? borderStrokeSize, divisionStrokeSize, districtStrokeSize;
   final Color? borderColor, divisionBorderColor, districtBorderColor;
@@ -187,58 +188,90 @@ class BangladeshDivisionMap extends StatelessWidget {
           Visibility(
             visible: showName,
             child: Positioned(
-                left: 280.26 / _width * width,
+                left: 270.26 / _width * width,
                 top: 350.21 / _height * height,
-                child: const MyText(name: 'Chattogram')),
+                child: MyText(
+                  name: 'Chattogram',
+                  fontSize: width / height * 15,
+                  textUpperCase: isNameUpperCase,
+                )),
           ),
           Visibility(
             visible: showName,
             child: Positioned(
                 left: 67.16 / _width * width,
                 top: 70.66 / _height * height,
-                child: const MyText(name: 'Rangpur')),
+                child: MyText(
+                  name: 'Rangpur',
+                  fontSize: width / height * 15,
+                  textUpperCase: isNameUpperCase,
+                )),
           ),
           Visibility(
             visible: showName,
             child: Positioned(
                 left: 55.75 / _width * width,
                 top: 160.57 / _height * height,
-                child: const MyText(name: 'Rajshahi')),
+                child: MyText(
+                  name: 'Rajshahi',
+                  fontSize: width / height * 15,
+                  textUpperCase: isNameUpperCase,
+                )),
           ),
           Visibility(
             visible: showName,
             child: Positioned(
                 left: 150.23 / _width * width,
                 top: 137.91 / _height * height,
-                child: const MyText(name: 'Mymensingh')),
+                child: MyText(
+                  name: 'Mymensingh',
+                  fontSize: width / height * 15,
+                  textUpperCase: isNameUpperCase,
+                )),
           ),
           Visibility(
             visible: showName,
             child: Positioned(
                 left: 266.79 / _width * width,
                 top: 160.59 / _height * height,
-                child: const MyText(name: 'Sylhet')),
+                child: MyText(
+                  name: 'Sylhet',
+                  fontSize: width / height * 15,
+                  textUpperCase: isNameUpperCase,
+                )),
           ),
           Visibility(
             visible: showName,
             child: Positioned(
                 left: 150.34 / _width * width,
                 top: 240.49 / _height * height,
-                child: const MyText(name: 'Dhaka')),
+                child: MyText(
+                  name: 'Dhaka',
+                  fontSize: width / height * 15,
+                  textUpperCase: isNameUpperCase,
+                )),
           ),
           Visibility(
             visible: showName,
             child: Positioned(
                 left: 82.6 / _width * width,
                 top: 323.79 / _height * height,
-                child: const MyText(name: 'Khulna')),
+                child: MyText(
+                  name: 'Khulna',
+                  fontSize: width / height * 15,
+                  textUpperCase: isNameUpperCase,
+                )),
           ),
           Visibility(
             visible: showName,
             child: Positioned(
                 left: 159.27 / _width * width,
                 top: 348.81 / _height * height,
-                child: const MyText(name: 'Barishal')),
+                child: MyText(
+                  name: 'Barishal',
+                  fontSize: width / height * 15,
+                  textUpperCase: isNameUpperCase,
+                )),
           ),
         ],
       ),
@@ -247,12 +280,30 @@ class BangladeshDivisionMap extends StatelessWidget {
 }
 
 class MyText extends StatelessWidget {
-  const MyText({Key? key, required this.name}) : super(key: key);
+  const MyText({
+    Key? key,
+    required this.name,
+    this.textStyle,
+    this.fontSize,
+    required this.textUpperCase,
+  }) : super(key: key);
 
   final String name;
+  final TextStyle? textStyle;
+  final double? fontSize;
+  final bool textUpperCase;
 
   @override
   Widget build(BuildContext context) {
-    return Text(name);
+    return Text(
+      textUpperCase ? name.toUpperCase() : name,
+      textAlign: TextAlign.center,
+      style: textStyle ??
+          TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: fontSize ?? 15,
+            letterSpacing: 0.4,
+          ),
+    );
   }
 }
