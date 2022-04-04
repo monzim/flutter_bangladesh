@@ -165,6 +165,21 @@ class BangladeshDivisionMap extends StatelessWidget {
               ),
             ),
           ),
+          Visibility(
+            visible: showDivisionBorder ?? true,
+            child: Positioned(
+              left: 53.71 / _width * width,
+              top: 102.39 / _height * height,
+              child: CustomPaint(
+                size:
+                    Size(204.69 / _width * width, (299.72 / _height * height)),
+                painter: DivisionalBorderPainter(
+                    strokeWidth: divisionStrokeSize,
+                    strokeColor: divisionBorderColor),
+              ),
+            ),
+          ),
+
           //Rangpur
           Positioned(
             left: 6.2 / _width * width,
@@ -504,51 +519,8 @@ class BangladeshDivisionMap extends StatelessWidget {
               ),
             ),
           ),
-          // Visibility(
-          //   visible: showDivisionBorder ?? true,
-          //   child: Positioned(
-          //     left: 53.71 / _width * width,
-          //     top: 102.39 / _height * height,
-          //     child: CustomPaint(
-          //       size:
-          //           Size(204.69 / _width * width, (299.72 / _height * height)),
-          //       painter: DivisionalBorderPainter(
-          //           strokeWidth: divisionStrokeSize,
-          //           strokeColor: divisionBorderColor),
-          //     ),
-          //   ),
-          // ),
         ],
       ),
-    );
-  }
-}
-
-class MyText extends StatelessWidget {
-  const MyText({
-    Key? key,
-    required this.name,
-    this.textStyle,
-    this.fontSize,
-    required this.textUpperCase,
-  }) : super(key: key);
-
-  final String name;
-  final TextStyle? textStyle;
-  final double? fontSize;
-  final bool textUpperCase;
-
-  @override
-  Widget build(BuildContext context) {
-    return Text(
-      textUpperCase ? name.toUpperCase() : name,
-      textAlign: TextAlign.center,
-      style: textStyle ??
-          TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: fontSize ?? 15,
-            letterSpacing: 0.4,
-          ),
     );
   }
 }
