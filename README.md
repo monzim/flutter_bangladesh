@@ -1,4 +1,4 @@
-<img src="https://github.com/Monzim/Al-AsrVim/blob/main/system/Top.jpg?raw=true">
+<img src="https://github.com/Monzim/flutter_bangladesh/blob/main/example/images/Top.jpg?raw=true">
 
 
 # Bangladesh
@@ -18,17 +18,16 @@ import 'package:bangladesh/bangladesh.dart';
 ```
 
 ### Simple `BangladeshMap`
-For best results, set width 360 and height 600
+For best results, set width 361 and height 500
 
 ```
  BangladeshMap(
-      width: 461,
-      height: 600,
+      width: 361,
+      height: 500,
     )
 ```
 
 ### Add Color to `BangladeshMap`
-For best results, set width 360 and height 600
 
 ```
 import 'package:bangladesh/bangladesh.dart';
@@ -58,4 +57,4 @@ class OurMap extends StatelessWidget {
 }
 ```
 
-<img src="https://github.com/Monzim/Al-AsrVim/blob/main/system/Ep.png?raw=true">
+<img src="https://github.com/Monzim/flutter_bangladesh/blob/main/example/images/Ep.png?raw=true">
