@@ -6,49 +6,35 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: HomePage(),
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.teal),
+        useMaterial3: true,
+      ),
+      home: const HomePage(),
     );
   }
 }
 
 class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+  const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
-        centerTitle: true,
-        title: const Text('Bangladesh'),
-        elevation: 0,
-        // backgroundColor: Colors.black,
+        backgroundColor: Colors.black,
+        title: const Text('Bangladesh', style: TextStyle(color: Colors.white)),
       ),
-      floatingActionButton:
-          FloatingActionButton(onPressed: () {}, child: const Icon(Icons.map)),
       body: const Center(
-          child: BangladeshMap(
-        width: 461,
-        height: 600,
-        rangpurColor: Colors.orange,
-        rajshahiColor: Colors.red,
-        dhakaColor: Colors.indigo,
-        sylhetColor: Colors.blue,
-        khulnaColor: Colors.teal,
-        chittagongColor: Colors.grey,
-        barisalColor: Colors.pink,
-        mymensinghColor: Colors.brown,
-        showBorder: false,
-        showName: false,
-        showDivisionBorder: false,
-        showDistrictBorder: false,
-      )),
+        child: Bangladesh(),
+      ),
     );
   }
 }
